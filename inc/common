@@ -1,0 +1,22 @@
+#!/bin/sh -ex
+
+# Common variables used across other scripts/hooks
+hostname=`unit-get public-address`
+private_name=`unit-get private-address`
+
+install_path="/srv/www/htdocs"
+config_file_path="$install_path/configuration.php"
+initdb_sql="$install_path/installation/sql/mysql/prestashop.sql"
+
+# This file should contain common function definitions
+set_permissions() {
+	if [ -d $install_path ]; then
+    chown -R www-data:www-data $install_path  
+		chmod 750 $install_path
+		find $install_path -type f -exec chmod 644 {} \;
+		find $install_path -type d -exec chmod 755 {} \;
+	else
+		juju-log "PrestaShop is not installed at $install_path"
+		exit 1
+	fi
+}
