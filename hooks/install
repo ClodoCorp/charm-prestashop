@@ -19,8 +19,10 @@ PRESTA_TARBALL="http://www.prestashop.com/ajax/controller.php?method=download&ty
 curl -vv -L $JOOMLA_TARBALL > /tmp/prestashop.zip
 
 juju-log "Extract"
+
 mkdir -p $install_path
-tar -d $install_path /tmp/prestashop.zip
+unzip /tmp/prestashop.zip prestashop/\* -d $install_path
+
 rm -f /tmp/joomla.tar.gz
 mv $install_path/htaccess.txt $install_path/.htaccess
 
