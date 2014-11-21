@@ -16,15 +16,15 @@ juju-log "Download"
 
 PRESTA_TARBALL="http://www.prestashop.com/ajax/controller.php?method=download&type=releases&file=prestashop_1.6.0.9.zip"
 
-curl -vv -L $JOOMLA_TARBALL > /tmp/prestashop.zip
+curl -vv -L $PRESTA_TARBALL > /tmp/prestashop.zip
 
 juju-log "Extract"
 
 mkdir -p $install_path
 unzip /tmp/prestashop.zip prestashop/\* -d $install_path
 
-rm -f /tmp/joomla.tar.gz
-mv $install_path/htaccess.txt $install_path/.htaccess
+#rm -f /tmp/joomla.tar.gz
+mv $install_path/prestashop/htaccess.txt $install_path/prestashop/.htaccess
 
 #(
 #patch -d $install_path -p1 < files/joomla/default_database.patch
