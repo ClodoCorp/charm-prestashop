@@ -5,7 +5,7 @@
 juju-log "Installing software"
 
 apt-get update
-apt-get -y install --no-install-suggests --no-install-recommends  apache2 php5-gd libapache2-mod-php5 mysql-client-core-5.5 php5-mysql pwgen
+apt-get -y install --no-install-suggests --no-install-recommends  apache2 php5-gd libapache2-mod-php5 mysql-client-core-5.5 php5-mysql pwgen zip
 
 a2enmod php5 headers
 a2dissite 000-default
@@ -13,23 +13,24 @@ a2dissite 000-default
 service apache2 restart
 
 juju-log "Download"
-PRESTA_TARBALL="https://github.com/joomla/joomla-cms/releases/download/3.3.6/Joomla_3.3.6-Stable-Full_Package.tar.gz"
-PRESTA_MD5SUM="a783a14939afaaf33040a1decffccbae"
-curl -vv -L $JOOMLA_TARBALL > /tmp/joomla.tar.gz
+
+PRESTA_TARBALL="http://www.prestashop.com/ajax/controller.php?method=download&type=releases&file=prestashop_1.6.0.9.zip"
+
+curl -vv -L $JOOMLA_TARBALL > /tmp/prestashop.zip
 
 juju-log "Extract"
 mkdir -p $install_path
-tar -C $install_path -zxf /tmp/joomla.tar.gz
+tar -d $install_path /tmp/prestashop.zip
 rm -f /tmp/joomla.tar.gz
 mv $install_path/htaccess.txt $install_path/.htaccess
 
-(
-patch -d $install_path -p1 < files/joomla/default_database.patch
-)
+#(
+#patch -d $install_path -p1 < files/joomla/default_database.patch
+#)
 
 # Secret key for configuring Joomla
-secret_key=`pwgen 32 1`
-sed -i "s|public \$secret = '.*';|public \$secret = '"$secret_key"';|g" $install_path/installation/configuration.php-dist
+#secret_key=`pwgen 32 1`
+#sed -i "s|public \$secret = '.*';|public \$secret = '"$secret_key"';|g" $install_path/installation/configuration.php-dist
 
 # Set better file permissions
 set_permissions
