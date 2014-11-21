@@ -5,7 +5,7 @@
 juju-log "Installing software"
 
 apt-get update
-apt-get -y install --no-install-suggests --no-install-recommends  apache2 php5-gd libapache2-mod-php5 mysql-client-core-5.5 php5-mysql pwgen zip
+apt-get -y install --no-install-suggests --no-install-recommends  apache2 php5-gd libapache2-mod-php5 mysql-client-core-5.5 php5-mysql pwgen zip unzip
 
 a2enmod php5 headers
 a2dissite 000-default
