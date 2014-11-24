@@ -9,6 +9,7 @@ apt-get -y install --no-install-suggests --no-install-recommends  apache2 php5-g
 
 a2enmod php5 headers
 a2dissite 000-default
+sed -i "s|max_execution_time = 30|max_execution_time = 600|g" /etc/php5/apache2/php.ini
 
 service apache2 restart
 
