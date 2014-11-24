@@ -31,10 +31,10 @@ fi
 
 juju-log Config
 
-sed -i "s|htmlspecialchars(\$this->database_server)|htmlspecialchars($host)|g" $install_path/install/theme/views/database.phtml
-sed -i "s|htmlspecialchars(\$this->database_login)|htmlspecialchars($user)|g" $install_path/install/theme/views/database.phtml
-sed -i "s|htmlspecialchars(\$this->database_password)|htmlspecialchars($password)|g" $install_path/install/theme/views/database.phtml
-sed -i "s|htmlspecialchars(\$this->database_name)|htmlspecialchars($database)|g" $install_path/install/theme/views/database.phtml
+sed -i "s|htmlspecialchars(\$this->database_server)|htmlspecialchars(\"$host\")|g" $install_path/install/theme/views/database.phtml
+sed -i "s|htmlspecialchars(\$this->database_login)|htmlspecialchars(\"$user\")|g" $install_path/install/theme/views/database.phtml
+sed -i "s|htmlspecialchars(\$this->database_password)|htmlspecialchars(\"$password\")|g" $install_path/install/theme/views/database.phtml
+sed -i "s|htmlspecialchars(\$this->database_name)|htmlspecialchars(\"$database\")|g" $install_path/install/theme/views/database.phtml
 
 # least access permissions for the configuration file
 #chown www-data:www-data $config_file_path
