@@ -13,8 +13,8 @@ set_permissions() {
 	if [ -d $install_path ]; then
     chown -R www-data:www-data $install_path  
 		chmod 750 $install_path
-		find $install_path -type f -exec chmod 644 {} \;
-		find $install_path -type d -exec chmod 755 {} \;
+		find $install_path -type f -exec chmod 664 {} \;
+		find $install_path -type d -exec chmod 775 {} \;
 	else
 		juju-log "PrestaShop is not installed at $install_path"
 		exit 1
