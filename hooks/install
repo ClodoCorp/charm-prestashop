@@ -25,9 +25,7 @@ mkdir -p /tmp/prestashop
 unzip /tmp/prestashop.zip prestashop/\* -d /tmp/prestashop
 cp -fR /tmp/prestashop/prestashop/* $install_path
 
-#rm -f /tmp/joomla.tar.gz
-#mv $install_path/prestashop/htaccess.txt $install_path/prestashop/.htaccess
-
 
 # Set better file permissions
+
 set_permissions
