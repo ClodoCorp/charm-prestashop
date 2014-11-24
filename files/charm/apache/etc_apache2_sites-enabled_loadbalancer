@@ -8,7 +8,7 @@
   ServerAlias *
   ServerAdmin webmaster@localhost
 
-  DocumentRoot /srv/www/htdocs/prestashop
+  DocumentRoot /srv/www/htdocs
 <Directory /srv/>
         Options Indexes FollowSymLinks
         AllowOverride None

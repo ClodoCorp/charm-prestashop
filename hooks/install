@@ -21,18 +21,13 @@ curl -vv -L $PRESTA_TARBALL > /tmp/prestashop.zip
 juju-log "Extract"
 
 mkdir -p $install_path
-unzip /tmp/prestashop.zip prestashop/\* -d $install_path
+mkdir -p /tmp/prestashop
+unzip /tmp/prestashop.zip prestashop/\* -d /tmp/prestashop
+cp -fR tmp/prestashop/prestashop/* $install_path
 
 #rm -f /tmp/joomla.tar.gz
-mv $install_path/prestashop/htaccess.txt $install_path/prestashop/.htaccess
+#mv $install_path/prestashop/htaccess.txt $install_path/prestashop/.htaccess
 
-#(
-#patch -d $install_path -p1 < files/joomla/default_database.patch
-#)
-
-# Secret key for configuring Joomla
-#secret_key=`pwgen 32 1`
-#sed -i "s|public \$secret = '.*';|public \$secret = '"$secret_key"';|g" $install_path/installation/configuration.php-dist
 
 # Set better file permissions
 set_permissions

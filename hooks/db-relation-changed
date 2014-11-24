@@ -31,11 +31,10 @@ fi
 
 juju-log Config
 
-sed -i "s|PLACEHOLDER_DB_HOST|$host|g" $install_path/installation/model/forms/database.xml
-sed -i "s|PLACEHOLDER_DB_USER|$user|g" $install_path/installation/model/forms/database.xml
-sed -i "s|PLACEHOLDER_DB_PASS|$password|g" $install_path/installation/model/forms/database.xml
-sed -i "s|PLACEHOLDER_DB_NAME|$database|g" $install_path/installation/model/forms/database.xml
-sed -i "s|PLACEHOLDER_DB_PREFIX|jos_|g" $install_path/installation/model/forms/database.xml
+sed -i "s|htmlspecialchars(\$this->database_server)|htmlspecialchars($host)|g" $install_path/install/theme/views/database.phtml
+sed -i "s|htmlspecialchars(\$this->database_login)|htmlspecialchars($user)|g" $install_path/install/theme/views/database.phtml
+sed -i "s|htmlspecialchars(\$this->database_password)|htmlspecialchars($password)|g" $install_path/install/theme/views/database.phtml
+sed -i "s|htmlspecialchars(\$this->database_name)|htmlspecialchars($database)|g" $install_path/install/theme/views/database.phtml
 
 # least access permissions for the configuration file
 #chown www-data:www-data $config_file_path
