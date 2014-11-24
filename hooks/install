@@ -23,7 +23,7 @@ juju-log "Extract"
 mkdir -p $install_path
 mkdir -p /tmp/prestashop
 unzip /tmp/prestashop.zip prestashop/\* -d /tmp/prestashop
-cp -fR tmp/prestashop/prestashop/* $install_path
+cp -fR /tmp/prestashop/prestashop/* $install_path
 
 #rm -f /tmp/joomla.tar.gz
 #mv $install_path/prestashop/htaccess.txt $install_path/prestashop/.htaccess
