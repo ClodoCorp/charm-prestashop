@@ -12,7 +12,7 @@ if [ "x$engine" = "xapache" -o "x${engine}" = "xapache2" ]; then
 		service $web_engine stop
 	fi
 	apt-get -y purge nginx
-	apt-get --no-install-suggests --no-install-recommends install -y apache2 libapache2-mod-php5
+	apt-get --no-install-suggests --no-install-recommends install -y apache2 libapache2-mod-php5 php5-cli php5-readline 
 	service apache2 stop
 
   mkdir -p /srv/www/htdocs
