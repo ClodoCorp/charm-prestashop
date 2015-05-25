@@ -1,6 +1,4 @@
-Listen 127.0.0.1:8080
-
-<VirtualHost *:8080>
+<VirtualHost *:80>
   ServerName localhost
   ServerAlias *
   ServerAdmin webmaster@localhost
