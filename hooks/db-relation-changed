@@ -40,6 +40,6 @@ sed -i "s|htmlspecialchars(\$this->database_name)|htmlspecialchars(\"$database\"
 #chown www-data:www-data $config_file_path
 #chmod 0640 $config_file_path
 
-juju-log "Opening port 80"
-open-port 80/tcp
+juju-log "Opening port 8080"
+open-port 8080/tcp
 open-port 443/tcp
