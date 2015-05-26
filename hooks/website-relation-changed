@@ -1,3 +1,0 @@
-#!/bin/sh -ex
-relation-set deprecated-or-unused=private-address
-relation-set port=8080 hostname=`unit-get private-address`
