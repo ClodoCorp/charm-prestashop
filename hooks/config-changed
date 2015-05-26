@@ -31,3 +31,6 @@ fi
 
 juju-log "Restarting Services ..."
 hooks/restart
+
+relation-set port=8080 hostname=`unit-get private-address`
+
